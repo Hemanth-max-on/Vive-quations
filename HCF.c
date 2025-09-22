@@ -1,3 +1,4 @@
+//WRITE A C PROGRAM TO FIND THE HCF OF TWO NUMBERS USING A WHILE LOOP
 #include<stdio.h>
 
 int hcf(int *pt,int num);
