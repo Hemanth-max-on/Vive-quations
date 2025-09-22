@@ -1,40 +1,40 @@
 #include<stdio.h>
 
-int hcf(int *pt,int nu);
+int hcf(int *pt,int num);
 
 int main(){
-	int ar[10],b,c,i;
+	int ar[10],ans,i;
 	for(i=0;ar[i]<=10;i++){
-		printf("ar[%d]=",i);
+		printf("Enter num=");
 		scanf("%d",&ar[i]);
-		if(ar[i]==0){
+		if(ar[i]==0){        //Condition to break the loop when we store '0' in the array
 			break;
 		}
 	}
-	c=hcf(ar,i);
-	printf("HCF=%d\n",c);
+	ans=hcf(ar,i);          // Calling the HCF function
+	printf("HCF=%d\n",ans);   // Printing the final answer
 	return 0;
 }
 
-int hcf(int *pt,int nu){
-	int g=1,b=0,i=9;
+int hcf(int *pt,int num){
+	int mul=1,ref=0,i=9;  
 	while(i>1){
-		for(int j=0;j<nu;j++){
+		for(int j=0;j<num;j++){
 			if(pt[j]%i==0){
-				b++;
+				ref++;
 			}
 		}
-		if(b==nu){
-			for(int k=0;k<nu;k++){
+		if(ref==num){                 // Using ref (reference counter) to compare with num
+			for(int k=0;k<num;k++){
 				pt[k]/=i;
 			}
-			g*=i;
+			mul*=i;           // mul stores the product for the final answerv
 			i=9;
-			b=0;
+			ref=0;
 			continue;
 		}
-		b=0;
+		ref=0;
 		i--;
 	}
-	return g;
+	return mul;
 }
